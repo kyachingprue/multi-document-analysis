@@ -108,25 +108,45 @@ export default function DocumentsPage() {
   };
 
   // Handle delete
-  const handleDelete = async (documentId: string) => {
-    if (!confirm("Are you sure you want to delete this document?")) return;
-
-    try {
-      const response = await fetch(`/api/documents/${documentId}`, {
-        method: "DELETE",
-      });
-
-      if (response.ok) {
-        toast.success("Document deleted successfully");
-        fetchDocuments(); // Refresh list
-      } else {
-        toast.error("Failed to delete document");
-      }
-    } catch (error) {
-      console.error("Delete error:", error);
-      toast.error("Failed to delete document");
-    }
-  };
+ const handleDelete = (documentId: string) => {
+   toast(
+     <div className="bg-white p-4 rounded-lg shadow-md border">
+       <p className="mb-2 font-semibold">
+         Are you sure you want to delete this document?
+       </p>
+       <div className="flex justify-end gap-2">
+         <Button
+           className="px-3 py-1 bg-gray-200 rounded hover:bg-gray-300"
+           onClick={() => toast.dismiss()}
+         >
+           Cancel
+         </Button>
+         <Button
+           className="px-3 py-1 bg-red-500 text-white rounded hover:bg-red-600"
+           onClick={async () => {
+             toast.dismiss();
+             try {
+               const response = await fetch(`/api/documents/${documentId}`, {
+                 method: 'DELETE',
+               });
+               if (response.ok) {
+                 toast.success('Document deleted successfully');
+                 fetchDocuments(); // refresh list
+               } else {
+                 toast.error('Failed to delete document');
+               }
+             } catch (error) {
+               console.error('Delete error:', error);
+               toast.error('Failed to delete document');
+             }
+           }}
+         >
+           Delete
+         </Button>
+       </div>
+     </div>,
+   );
+ };
 
   return (
     <div className="space-y-8">
