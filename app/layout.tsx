@@ -13,7 +13,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "DocuAI - AI-Powered Document Analysis",
+  title: "DocAI Analysis - AI-Powered Document Analysis",
   description: "Analyze and collaborate on documents with Google Gemini AI",
 };
 
