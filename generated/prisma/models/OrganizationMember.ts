@@ -1207,6 +1207,11 @@ export type OrganizationMemberFindManyArgs<ExtArgs extends runtime.Types.Extensi
    * Skip the first `n` OrganizationMembers.
    */
   skip?: number
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+   * 
+   * Filter by unique combinations of OrganizationMembers.
+   */
   distinct?: Prisma.OrganizationMemberScalarFieldEnum | Prisma.OrganizationMemberScalarFieldEnum[]
 }
 

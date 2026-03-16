@@ -7,7 +7,10 @@ import Footer from "@/components/common/footer";
 import { Toaster } from "sonner";
 import { syncUserToDatabase } from "@/lib/sync-user";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
   title: "DocuAI - AI-Powered Document Analysis",
