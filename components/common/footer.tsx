@@ -1,50 +1,47 @@
-import Link from "next/link";
-import { Brain, Github, Twitter, Mail } from "lucide-react";
+import { Brain, Github, Mail, Twitter } from 'lucide-react';
+import Link from 'next/link';
+import React from 'react';
+import aiLogo from "../../public/ai.png"
+import Image from 'next/image';
 
-export default function Footer() {
+const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const footerLinks = {
     Product: [
-      { label: "Features", href: "/#features" },
-      { label: "Pricing", href: "/pricing" },
-      { label: "API", href: "/api-docs" },
+      { label: 'Features', href: '/#features' },
+      { label: 'Pricing', href: '/pricing' },
+      { label: 'API', href: '/api-docs' },
     ],
     Company: [
-      { label: "About", href: "/about" },
-      { label: "Blog", href: "/blog" },
-      { label: "Careers", href: "/careers" },
+      { label: 'About', href: '/about' },
+      { label: 'Blog', href: '/blog' },
+      { label: 'Careers', href: '/careers' },
     ],
     Legal: [
-      { label: "Privacy", href: "/privacy" },
-      { label: "Terms", href: "/terms" },
-      { label: "Security", href: "/security" },
-    ],
-    Support: [
-      { label: "Help Center", href: "/help" },
-      { label: "Contact Us", href: "/contact" },
-      { label: "Status", href: "/status" },
+      { label: 'Privacy', href: '/privacy' },
+      { label: 'Terms', href: '/terms' },
+      { label: 'Security', href: '/security' },
     ],
   };
 
   const socialLinks = [
     {
       icon: <Github className="h-5 w-5" />,
-      href: "https://github.com",
-      label: "GitHub",
+      href: 'https://github.com',
+      label: 'Github',
     },
     {
       icon: <Twitter className="h-5 w-5" />,
-      href: "https://twitter.com",
-      label: "Twitter",
+      href: 'https://twitter.com',
+      label: 'Twitter',
     },
     {
       icon: <Mail className="h-5 w-5" />,
-      href: "mailto:support@docuai.com",
-      label: "Email",
+      href: 'kyachingpruemarma.info@gmail.com',
+      label: 'Email',
     },
   ];
-
   return (
     <footer className="border-t bg-gray-50">
       <div className="container mx-auto px-4 py-12">
@@ -52,15 +49,15 @@ export default function Footer() {
           {/* Brand */}
           <div className="lg:col-span-2">
             <div className="flex items-center gap-2 mb-4">
-              <Brain className="h-8 w-8 text-blue-600" />
-              <span className="text-xl font-bold">DocuAI</span>
+              <Image src={aiLogo} alt="website ai logo" className="w-5 h-5 md:w-7 md:h-7" />
+              <span className="text-xl font-bold">DocAI Analysis</span>
             </div>
             <p className="text-gray-600 mb-6 max-w-md">
-              AI-powered document analysis for teams. Upload, analyze, and
-              collaborate on documents with your organization.
+              AI - Powered document analysis for teams . Upload, Analyze , and
+              Collaborate on documents with your organization.
             </p>
             <div className="flex gap-4">
-              {socialLinks.map((link) => (
+              {socialLinks.map(link => (
                 <a
                   key={link.label}
                   href={link.href}
@@ -74,13 +71,12 @@ export default function Footer() {
               ))}
             </div>
           </div>
-
           {/* Footer Links */}
           {Object.entries(footerLinks).map(([category, links]) => (
             <div key={category}>
               <h3 className="font-semibold text-lg mb-4">{category}</h3>
               <ul className="space-y-2">
-                {links.map((link) => (
+                {links.map(link => (
                   <li key={link.label}>
                     <Link
                       href={link.href}
@@ -94,11 +90,10 @@ export default function Footer() {
             </div>
           ))}
         </div>
-
         {/* Bottom Bar */}
-        <div className="border-t mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+        <div className="border-t mt-8 pt-8 flex flex-col md:flex-row justify-between">
           <div className="text-gray-600 mb-4 md:mb-0">
-            © {currentYear} DocuAI. All rights reserved.
+            &copy; {currentYear} DocAI Analysis.All right reserved.
           </div>
           <div className="flex gap-6 text-sm text-gray-600">
             <Link href="/privacy" className="hover:text-gray-900">
@@ -107,12 +102,14 @@ export default function Footer() {
             <Link href="/terms" className="hover:text-gray-900">
               Terms of Service
             </Link>
-            <Link href="/cookies" className="hover:text-gray-900">
-              Cookie Policy
+            <Link href="/cookie" className="hover:text-gray-900">
+              Cookie Police
             </Link>
           </div>
         </div>
       </div>
     </footer>
   );
-}
+};
+
+export default Footer;

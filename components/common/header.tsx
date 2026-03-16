@@ -11,17 +11,18 @@ import {
   useOrganization,
 } from "@clerk/nextjs";
 import { Button } from "@/components/ui/button";
+import aiLogo from "../../public/ai.png"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import {
   Menu,
   Home,
   FileText,
   Users,
-  Brain,
   LogIn,
   UserPlus,
   Building,
 } from "lucide-react";
+import Image from "next/image";
 
 export default function Header() {
   const pathname = usePathname();
@@ -74,8 +75,8 @@ export default function Header() {
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 font-bold text-xl">
-          <Brain className="h-6 w-6 text-blue-600" />
-          DocuAI
+          <Image src={aiLogo} alt="profile image logo" className="w-5 h-5 md:w-7 md:h-7"/>
+          DocAI Analysis
         </Link>
 
         {/* Desktop Navigation */}
@@ -106,7 +107,7 @@ export default function Header() {
             <div className="hidden md:flex items-center gap-2">
               <span className="text-sm text-gray-600">
                 {organization
-                  ? `In: ${organization.name}`
+                  ? ` ${organization.name}`
                   : user?.firstName || user?.username}
               </span>
               <UserButton />
