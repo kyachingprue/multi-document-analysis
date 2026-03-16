@@ -110,19 +110,19 @@ export default function DocumentsPage() {
   // Handle delete
  const handleDelete = (documentId: string) => {
    toast(
-     <div className="bg-white p-4 rounded-lg shadow-md border">
-       <p className="mb-2 font-semibold">
+     <div className="bg-white p-2">
+       <p className="mb-2 font-semibold text-lg">
          Are you sure you want to delete this document?
        </p>
-       <div className="flex justify-end gap-2">
+       <div className="flex justify-center gap-2">
          <Button
-           className="px-3 py-1 bg-gray-200 rounded hover:bg-gray-300"
+           className="px-3 py-0.5 text-gray-800 bg-gray-200 rounded hover:bg-gray-300"
            onClick={() => toast.dismiss()}
          >
            Cancel
          </Button>
          <Button
-           className="px-3 py-1 bg-red-500 text-white rounded hover:bg-red-600"
+           className="px-3 py-0.5 bg-red-700 text-white rounded hover:bg-red-800"
            onClick={async () => {
              toast.dismiss();
              try {
